@@ -1,5 +1,4 @@
 import React from 'react';
-// import { Switch } from 'react-router-dom';
 
 // import 'rsuite/dist/styles/rsuite-default.css';
 import 'rsuite/dist/styles/rsuite-default.min.css'
@@ -9,11 +8,13 @@ import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
+import ProfileProvider from './context/profile.context';
 
 const App = () => {
   return (
+<ProfileProvider>
 
-    <Switch>
+<Switch>
       <PublicRoute path="/signin">
         <SignIn />
       </PublicRoute>
@@ -22,6 +23,8 @@ const App = () => {
         <Home />
       </PrivateRoute>
     </Switch>
+</ProfileProvider>
+   
   );
 };
 
